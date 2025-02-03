@@ -1,0 +1,24 @@
+services:
+  mariadb:
+    build: requirements/mariadb
+    ports:
+      - "3306"
+    networks:
+      - wordpress-network
+  wordpress:
+    build: requirements/nginx
+    ports:
+      - "3306:9000"
+    networks:
+      - wordpress-network
+  nginx:
+    build: requirements/wordpress
+    ports:
+      - "443:9000"
+    networks:
+      - wordpress-network
+volumes:
+  mariadb-volume:
+  wordpress-volume:
+networks:
+  wordpress-network: {}
