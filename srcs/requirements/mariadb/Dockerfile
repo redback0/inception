@@ -1,1 +1,2 @@
 FROM mariadb:11.6.2
+ENV MARIADB_ROOT_PASSWORD pass
