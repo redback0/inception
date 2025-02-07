@@ -4,13 +4,13 @@ services:
     networks:
       - wordpress-network
     volumes:
-      - wordpress-volume:/var/html/
+      - mariadb-volume:/var/mariadb
   wordpress:
     build: requirements/wordpress
     networks:
       - wordpress-network
     volumes:
-      - wordpress-volume:/var/html/
+      - wordpress-volume:/usr/share/nginx/html/
     depends_on:
       - mariadb
   nginx:
@@ -20,7 +20,7 @@ services:
     networks:
       - wordpress-network
     volumes:
-      - mariadb-volume:/var/mariadb
+      - wordpress-volume:/usr/share/nginx/html/
     depends_on:
       - wordpress
 volumes:
