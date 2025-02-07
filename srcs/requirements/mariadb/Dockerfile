@@ -1,2 +1,1 @@
-FROM scratch
-CMD [ "sleep" "infinity" ]
+FROM mariadb:11.6.2
