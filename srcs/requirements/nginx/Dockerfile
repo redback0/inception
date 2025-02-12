@@ -1,1 +1,4 @@
 FROM nginx:1.27.4
+
+ENV NGINX_HOST njackson.42.fr
+ENV NGINX_PORT 443
