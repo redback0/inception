@@ -23,7 +23,7 @@ services:
     networks:
       - wordpress-network
     volumes:
-      - wordpress-volume:/usr/share/nginx/html/
+      - wordpress-volume:/usr/www/html/
     depends_on:
       - wordpress
 volumes:

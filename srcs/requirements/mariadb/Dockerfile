@@ -1,3 +1,5 @@
+
+# FROM alpine:3.21.3
 FROM mariadb:11.6.2
 
 ENV MARIADB_DATABASE wordpress_db

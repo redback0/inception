@@ -1,4 +1,10 @@
-FROM nginx:1.27.4
+FROM alpine:3.21.3
 
-ENV NGINX_HOST njackson.42.fr
-ENV NGINX_PORT 443
+COPY nginx.conf /etc/nginx/nginx.conf
+
+RUN apk add openssl && openssl req -newkey rsa:2048 -noenc\
+        -keyout /etc/nginx/ssl/inception_private_key.key -x509 -days 365\
+        -out /etc/nginx/ssl/inception_certificate.csr\
+        -subj '/CN=njackson.42.fr'
+
+RUN apk add nginx
