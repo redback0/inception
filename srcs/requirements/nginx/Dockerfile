@@ -1,4 +1,5 @@
 FROM alpine:3.21.3
+RUN apk add nginx
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
@@ -7,4 +8,3 @@ RUN apk add openssl && openssl req -newkey rsa:2048 -noenc\
         -out /etc/nginx/ssl/inception_certificate.csr\
         -subj '/CN=njackson.42.fr'
 
-RUN apk add nginx
