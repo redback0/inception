@@ -12,7 +12,7 @@ services:
     networks:
       - wordpress-network
     volumes:
-      - wordpress-volume:/usr/www/html/
+      - wordpress-volume:/var/www/html/
     depends_on:
       - mariadb
   nginx:
@@ -23,7 +23,7 @@ services:
     networks:
       - wordpress-network
     volumes:
-      - wordpress-volume:/usr/www/html/
+      - wordpress-volume:/var/www/html/
     depends_on:
       - wordpress
 volumes:
