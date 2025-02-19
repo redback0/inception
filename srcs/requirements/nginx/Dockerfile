@@ -9,6 +9,8 @@ RUN apk add openssl && openssl req -newkey rsa:2048 -noenc\
         -out /etc/ssl/certs/inception_certificate.csr\
         -subj '/CN=njackson.42.fr'
 
+ENV INTRA_ID njackson
+
 #lol this line does nothing :D
 EXPOSE 443
 
