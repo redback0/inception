@@ -1,5 +1,7 @@
-FROM alpine:3.21.3
-RUN apk add nginx
+# FROM alpine:3.21.3
+# RUN apk add nginx
+
+FROM nginx:latest
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
