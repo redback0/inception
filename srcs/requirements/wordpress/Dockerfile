@@ -1,8 +1,12 @@
 
-# FROM alpine:3.21.3
-FROM wordpress:6.7.1-fpm
+FROM alpine:3.21.3
 
-ENV WORDPRESS_DB_HOST mariadb
-ENV WORDPRESS_DB_USER a_user
-ENV WORDPRESS_DB_PASSWORD a_password
-ENV WORDPRESS_DB_NAME wordpress_db
+# FROM wordpress:6.7.1-fpm
+
+# ENV WORDPRESS_DB_HOST mariadb
+# ENV WORDPRESS_DB_USER a_user
+# ENV WORDPRESS_DB_PASSWORD a_password
+# ENV WORDPRESS_DB_NAME wordpress_db
+
+
+CMD [ "sleep", "infinity"]
