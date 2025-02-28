@@ -7,8 +7,8 @@
 # ENV WORDPRESS_DB_PASSWORD a_password
 # ENV WORDPRESS_DB_NAME wordpress_db
 
-FROM debian:bookworm
+FROM debian:bullseye
 
-RUN apt update && apt install wordpress
+RUN apt-get update && apt-get install wordpress
 
 CMD [ "sleep", "infinity"]
