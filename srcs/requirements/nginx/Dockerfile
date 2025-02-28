@@ -11,7 +11,6 @@ RUN apk add openssl && openssl req -newkey rsa:2048 -noenc\
 
 ENV INTRA_ID njackson
 
-#lol this line does nothing :D
 EXPOSE 443
 
 CMD ["nginx", "-g", "daemon off;"]
