@@ -11,7 +11,7 @@ RUN apk add openssl && openssl req -newkey rsa:2048 -noenc\
         -subj '/CN='${INTRA_ID}'.42.fr'
 
 # RUN printf "daemon off;\n`cat nginx.conf`" > nginx.conf
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN printf "daemon off;\nerror_log /dev/stdout" >> /etc/nginx/nginx.conf
 
 
 EXPOSE 443
