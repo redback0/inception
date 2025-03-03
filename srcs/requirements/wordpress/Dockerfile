@@ -9,6 +9,8 @@
 
 FROM alpine:3.21.3
 
+RUN apk update && apk upgrade
+
 # get wordpress
 RUN apk add curl &&\
     mkdir -p /var/www/html/ &&\
