@@ -10,7 +10,10 @@ RUN apk add openssl && openssl req -newkey rsa:2048 -noenc\
         -out /etc/ssl/certs/inception_certificate.csr\
         -subj '/CN='${INTRA_ID}'.42.fr'
 
+# RUN printf "daemon off;\n`cat nginx.conf`" > nginx.conf
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
 
 EXPOSE 443
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx"]
