@@ -14,6 +14,8 @@ RUN apk add curl &&\
     cd /var/www/html/ &&\
     curl --output wordpress.tar.gz https://wordpress.org/wordpress-6.7.2.tar.gz &&\
     tar -xzvf wordpress.tar.gz &&\
-    rm wordpress.tar.gz
+    rm wordpress.tar.gz &&\
+    mv wordpress/* . &&\
+    rm -r wordpress
 
-CMD [ "sleep" "infinity" ]
+CMD [ "sleep" "10000" ]
