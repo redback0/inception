@@ -7,8 +7,11 @@
 # ENV WORDPRESS_DB_PASSWORD a_password
 # ENV WORDPRESS_DB_NAME wordpress_db
 
-FROM debian:bullseye
+FROM alpine:3.21.3
 
-RUN apt-get update && apt-get -y install wordpress
+RUN cd /var/www/html/ &&\
+    wget https://wordpress.org/wordpress-6.7.2.tar.gz &&\
+    tar -xzvf wordpress-6.7.2.tar.gz &&\
+    rm wordpress-6.7.2.tar.gz
 
-CMD [ "wordpress"]
+CMD [ "sleep" "infinity" ]
