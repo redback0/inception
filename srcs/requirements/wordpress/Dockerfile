@@ -9,10 +9,11 @@
 
 FROM alpine:3.21.3
 
-RUN mkdir -p /var/www/html/ &&\
+RUN apk add curl &&\
+    mkdir -p /var/www/html/ &&\
     cd /var/www/html/ &&\
-    wget https://wordpress.org/wordpress-6.7.2.tar.gz &&\
-    tar -xzvf wordpress-6.7.2.tar.gz &&\
-    rm wordpress-6.7.2.tar.gz
+    curl --output wordpress.tar.gz https://wordpress.org/wordpress-6.7.2.tar.gz &&\
+    tar -xzvf wordpress.tar.gz &&\
+    rm wordpress.tar.gz
 
 CMD [ "sleep" "infinity" ]
