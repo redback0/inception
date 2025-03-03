@@ -13,4 +13,4 @@ RUN apk add openssl && openssl req -newkey rsa:2048 -noenc\
 
 EXPOSE 443
 
-CMD ["nginx"]
+CMD ["nginx", "-g", "server { server_name ${INTRA_ID}.42.fr; }"]

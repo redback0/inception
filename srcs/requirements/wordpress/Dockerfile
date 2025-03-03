@@ -9,6 +9,6 @@
 
 FROM debian:bullseye
 
-RUN apt-get update && apt-get install wordpress
+RUN apt-get update && apt-get -y install wordpress
 
 CMD [ "sleep", "infinity"]
