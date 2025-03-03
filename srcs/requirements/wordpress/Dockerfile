@@ -9,6 +9,7 @@
 
 FROM alpine:3.21.3
 
+# get wordpress
 RUN apk add curl &&\
     mkdir -p /var/www/html/ &&\
     cd /var/www/html/ &&\
@@ -18,4 +19,7 @@ RUN apk add curl &&\
     mv wordpress/* . &&\
     rm -r wordpress
 
-CMD [ "sleep" "10000" ]
+# install php-fpm
+RUN apk add php7-fpm php7-mysqli
+
+CMD [ "tail", "-f" ]
