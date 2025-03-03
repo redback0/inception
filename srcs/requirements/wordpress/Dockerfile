@@ -24,4 +24,4 @@ RUN apk add curl &&\
 # install php-fpm
 RUN apk add php82-fpm php82-mysqli
 
-CMD [ "tail", "-f" ]
+CMD [ "php-fpm", "-F" ]
