@@ -9,7 +9,8 @@
 
 FROM alpine:3.21.3
 
-RUN cd /var/www/html/ &&\
+RUN mkdir -p /var/www/html/ &&\
+    cd /var/www/html/ &&\
     wget https://wordpress.org/wordpress-6.7.2.tar.gz &&\
     tar -xzvf wordpress-6.7.2.tar.gz &&\
     rm wordpress-6.7.2.tar.gz
