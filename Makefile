@@ -25,9 +25,9 @@ logs:
 clean: down
 
 fclean: down
-	@sudo docker volume prune -f
-	@sudo docker volume rm srcs_mariadb-volume
-	@sudo docker volume rm srcs_wordpress-volume
+	-@sudo docker volume prune -f
+	-@sudo docker volume rm srcs_mariadb-volume
+	-@sudo docker volume rm srcs_wordpress-volume
 
 DRUN := docker run -it --pull=never
 

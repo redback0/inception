@@ -27,5 +27,7 @@ RUN apk add php82-fpm php82-mysqli
 
 # configure php-fpm
 RUN printf 'access.log = /dev/stdout\n[global]\nerror_log = /dev/stderr\n' >> /etc/php82/php-fpm.conf
+# listen to all servers
+RUN sed -i "s/listen = 127\.0\.0\.1\:9000/listen = 9000/" /etc/php82/php-fpm.d/www.conf
 
 CMD [ "php-fpm82", "-F" ]
