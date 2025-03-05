@@ -1,6 +1,6 @@
 
 DCOMP := docker-compose
-DCOMP_FLAGS := -f srcs/
+DCOMP_FLAGS := -f srcs/docker-compose.yml
 
 all: up
 
@@ -43,4 +43,4 @@ access-nginx:
 
 
 
-.PHONY: all run build run-mariadb run-wordpress run-nginx access-mariadb access-wordpress access-nginx
+.PHONY: all build up down start stop run-mariadb run-wordpress run-nginx access-mariadb access-wordpress access-nginx
