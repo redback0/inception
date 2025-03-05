@@ -13,19 +13,19 @@ RUN apk update && apk upgrade
 
 # get wordpress
 RUN apk add curl &&\
-mkdir -p /var/www/html/ &&\
-cd /var/www/html/ &&\
-curl --output wordpress.tar.gz https://wordpress.org/wordpress-6.7.2.tar.gz &&\
-tar -xzvf wordpress.tar.gz &&\
-rm wordpress.tar.gz &&\
-mv wordpress/* . &&\
-rm -r wordpress
+    mkdir -p /var/www/html/ &&\
+    cd /var/www/html/ &&\
+    curl --output wordpress.tar.gz https://wordpress.org/wordpress-6.7.2.tar.gz &&\
+    tar -xzvf wordpress.tar.gz &&\
+    rm wordpress.tar.gz &&\
+    mv wordpress/* . &&\
+    rm -r wordpress
 
 
 # install php-fpm
 RUN apk add php82-fpm php82-mysqli
 
 # configure php-fpm
-RUN printf 'access.log = /dev/stdout\nerror_log = /dev/stderr'
+RUN printf 'access.log = /dev/stdout\nerror_log = /dev/stderr\n' >> /etc/php82/php-fpm.conf
 
 CMD [ "php-fpm82", "-F" ]
