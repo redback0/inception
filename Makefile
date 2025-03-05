@@ -1,46 +1,57 @@
 
-DCOMP := docker-compose
-DCOMP_FLAGS := -f srcs/docker-compose.yml
+DCOMP := docker-compose -f srcs/docker-compose.yml
 
-all: up
+all: build up
 
 build:
-	sudo ${DCOMP} ${DCOMP_FLAGS} build
+	@sudo ${DCOMP} build
 
-up: build
-	sudo ${DCOMP} ${DCOMP_FLAGS} -d up
+up:
+	@sudo ${DCOMP} up -d
 
 down:
-	sudo ${DCOMP} ${DCOMP_FLAGS} down
+	@sudo ${DCOMP} down
 
 start:
-	sudo ${DCOMP} ${DCOMP_FLAGS} start
+	@sudo ${DCOMP} start
 
 stop:
-	sudo ${DCOMP} ${DCOMP_FLAGS} stop
+	@sudo ${DCOMP} stop
+
+logs:
+	@sudo ${DCOMP} logs
+
+
+clean: down
+
+fclean: down
+	@sudo docker volume prune -f
+	@sudo docker volume rm srcs_mariadb-volume
+	@sudo docker volume rm srcs_wordpress-volume
 
 DRUN := docker run -it --pull=never
 
 run-mariadb:
-	sudo ${DRUN} srcs-mariadb sh
+	@sudo ${DRUN} srcs-mariadb sh
 
 run-wordpress:
-	sudo ${DRUN} srcs-wordpress sh
+	@sudo ${DRUN} srcs-wordpress sh
 
 run-nginx:
-	sudo ${DRUN} srcs-nginx sh
+	@sudo ${DRUN} srcs-nginx sh
 
 DACCESS := docker exec -it
 
 access-mariadb:
-	sudo ${DACCESS} inception-mariadb sh
+	@sudo ${DACCESS} inception-mariadb sh
 
 access-wordpress:
-	sudo ${DACCESS} inception-wordpress sh
+	@sudo ${DACCESS} inception-wordpress sh
 
 access-nginx:
-	sudo ${DACCESS} inception-nginx sh
+	@sudo ${DACCESS} inception-nginx sh
 
 
-
-.PHONY: all build up down start stop run-mariadb run-wordpress run-nginx access-mariadb access-wordpress access-nginx
+.PHONY: all build up down start stop logs clean fclean
+.PHONY: run-mariadb run-wordpress run-nginx
+.PHONY: access-mariadb access-wordpress access-nginx
