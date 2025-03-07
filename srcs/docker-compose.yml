@@ -15,6 +15,9 @@ services:
       - wordpress-volume:/var/www/html/
     depends_on:
       - mariadb
+    secrets:
+      - source: database-env
+        target: .env
   nginx:
     container_name: inception-nginx
     build: requirements/nginx
@@ -26,6 +29,9 @@ services:
       - wordpress-volume:/var/www/html/
     depends_on:
       - wordpress
+    secrets:
+      - source: nginx-env
+        target: .env
 volumes:
   mariadb-volume:
     driver: local
@@ -33,3 +39,8 @@ volumes:
     driver: local
 networks:
   wordpress-network: {}
+secrets:
+  database-env:
+    file: ./database.env
+  nginx-env:
+    file: ./nginx.env
