@@ -7,8 +7,8 @@
 
 
 # to do
-- change nginx to use docker secrets to get the intra id
 - mariadb
+- wordpress users (admin/normal)
 
 optional
 - remove the security risk from first access of the webpage

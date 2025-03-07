@@ -4,7 +4,6 @@ if [ ! -f /etc/ssl/certs/inception_certificate.csr ]; then
 
     echo "--FIRST RUN--"
 
-    #INTRA_ID=$(cat /run/secrets/INTRA_ID)
     set -a && source /run/secrets/.env && set +a
 
     openssl req -newkey rsa:2048 -noenc\
