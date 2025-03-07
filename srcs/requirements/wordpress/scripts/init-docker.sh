@@ -1,6 +1,8 @@
 #!/bin/sh
 
-if [ -e /var/www/html/wp-config.php ]; then
+if [ ! -e /var/www/html/wp-config.php ]; then
+
+    echo "--FIRST RUN--"
 
     cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 
