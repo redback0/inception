@@ -1,8 +1,6 @@
 
 FROM alpine:3.21.3
-#FROM mariadb:11.6.2
 
-#ENV MARIADB_DATABASE wordpress_db
-#ENV MARIADB_USER a_user
-#ENV MARIADB_PASSWORD a_password
-#ENV MARIADB_ROOT_PASSWORD rootpass
+RUN apk add mariadb
+
+

@@ -29,6 +29,8 @@ fclean: down
 	-@sudo docker volume rm srcs_mariadb-volume
 	-@sudo docker volume rm srcs_wordpress-volume
 
+re: fclean all
+
 DRUN := docker run -it --pull=never
 
 run-mariadb:
@@ -52,6 +54,6 @@ access-nginx:
 	@sudo ${DACCESS} inception-nginx sh
 
 
-.PHONY: all build up down start stop logs clean fclean
+.PHONY: all build up down start stop logs clean fclean re
 .PHONY: run-mariadb run-wordpress run-nginx
 .PHONY: access-mariadb access-wordpress access-nginx
