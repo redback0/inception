@@ -18,4 +18,4 @@ if [ ! -e /var/www/html/wp-config.php ]; then
 
 fi
 
-php-fpm82 -F
+exec php-fpm82 -F

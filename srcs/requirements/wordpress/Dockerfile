@@ -33,4 +33,4 @@ RUN sed -i "s/listen = 127\.0\.0\.1\:9000/listen = 9000/" /etc/php82/php-fpm.d/w
 COPY scripts/init-docker.sh /bin/init-docker.sh
 RUN chmod +xt /bin/init-docker.sh
 
-CMD [ "exec" "/bin/init-docker.sh" ]
+CMD [ "/bin/init-docker.sh" ]
