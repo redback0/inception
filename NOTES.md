@@ -7,8 +7,8 @@
 
 
 # to do
-- mariadb
 - wordpress users (admin/normal)
+- wordpress site initialization
 
 optional
 - remove the security risk from first access of the webpage
