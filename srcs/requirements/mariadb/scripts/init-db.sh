@@ -1,14 +1,9 @@
 #!/bin/sh
 
-FIRST_RUN_FILE=/etc/first_run_file
-
-exec mariadbd --datadir=/var/mariadb/data --user=mysql &
-
-if [ ! -f $FIRST_RUN_FILE ]; then
-    touch $FIRST_RUN_FILE
-
+first_run()
+{
     echo "--FIRST RUN--"
-    sleep 3
+    sleep 5
 
     set -a && source /run/secrets/wordpress.env \
         && source /run/secrets/database.env && set +a
@@ -21,6 +16,14 @@ if [ ! -f $FIRST_RUN_FILE ]; then
     sed -i "s/WP_HOST/$WP_HOST/g" /run/scripts/init-db.sql
 
     mariadb < /run/scripts/init-db.sql
+}
+
+FIRST_RUN_FILE=/etc/first_run_file
+
+if [ ! -f $FIRST_RUN_FILE ]; then
+    touch $FIRST_RUN_FILE
+
+    first_run() &
 fi
 
-fg
+exec mariadbd --datadir=/var/mariadb/data --user=mysql
