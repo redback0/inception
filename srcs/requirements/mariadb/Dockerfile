@@ -12,6 +12,9 @@ RUN chown -R mysql:root /var/mariadb
 # make sure a socket can be created
 RUN mkdir -p /run/mysqld && chown -R mysql:root /run/mysqld
 
+# allow external connections
+RUN sed -i "s/skip-networking//g" /etc/my.cnf.d/mariadb-server.cnf
+
 COPY scripts /run/scripts
 RUN chmod +xt /run/scripts/*
 
