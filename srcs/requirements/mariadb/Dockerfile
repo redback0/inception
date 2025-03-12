@@ -15,4 +15,4 @@ RUN mkdir -p /run/mysqld && chown -R mysql:root /run/mysqld
 COPY scripts /run/scripts
 RUN chmod +xt /run/scripts/*
 
-CMD [ "init-db.sh" ]
+CMD [ "/run/scripts/init-db.sh" ]
