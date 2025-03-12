@@ -14,4 +14,4 @@ RUN mkdir -p /run/mysqld && chown -R mysql:root /run/mysqld
 
 # initialize database (RUN SQL SCRIPT?)
 
-CMD [ "mariadbd" "--datadir=/var/mariadb/data" "--user=mysql" ]
+CMD [ "mariadbd", "--datadir=/var/mariadb/data", "--user=mysql" ]
