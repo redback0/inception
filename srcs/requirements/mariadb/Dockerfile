@@ -2,7 +2,7 @@
 FROM alpine:3.21.3
 
 # install mariadb
-RUN apk add mariadb
+RUN apk add mariadb mariadb-client
 
 # install database
 RUN mkdir -p /var/mariadb && cd /var/mariadb && mariadb-install-db
