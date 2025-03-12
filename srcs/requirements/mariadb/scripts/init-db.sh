@@ -23,7 +23,7 @@ FIRST_RUN_FILE=/etc/first_run_file
 if [ ! -f $FIRST_RUN_FILE ]; then
     touch $FIRST_RUN_FILE
 
-    first_run() &
+    $(first_run()) &
 fi
 
 exec mariadbd --datadir=/var/mariadb/data --user=mysql
