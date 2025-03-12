@@ -18,4 +18,4 @@ if [ ! -f $FIRST_RUN_FILE ]; then
     mariadb < /run/scripts/init-db.sql
 fi
 
-mariadbd --datadir=/var/mariadb/data --user=mysql
+exec mariadbd --datadir=/var/mariadb/data --user=mysql
