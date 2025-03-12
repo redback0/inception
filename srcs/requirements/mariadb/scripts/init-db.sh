@@ -2,8 +2,13 @@
 
 FIRST_RUN_FILE=/etc/first_run_file
 
+exec mariadbd --datadir=/var/mariadb/data --user=mysql &
+
 if [ ! -f $FIRST_RUN_FILE ]; then
     touch $FIRST_RUN_FILE
+
+    echo "--FIRST RUN--"
+    sleep 3
 
     set -a && source /run/secrets/wordpress.env \
         && source /run/secrets/database.env && set +a
@@ -18,4 +23,4 @@ if [ ! -f $FIRST_RUN_FILE ]; then
     mariadb < /run/scripts/init-db.sql
 fi
 
-exec mariadbd --datadir=/var/mariadb/data --user=mysql
+fg
