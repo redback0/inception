@@ -12,6 +12,7 @@ RUN chown -R mysql:root /var/mariadb
 # make sure a socket can be created
 RUN mkdir -p /run/mysqld && chown -R mysql:root /run/mysqld
 
-# initialize database (RUN SQL SCRIPT?)
+COPY scripts /run/scripts
+RUN chmod +xt /run/scripts/*
 
-CMD [ "mariadbd", "--datadir=/var/mariadb/data", "--user=mysql" ]
+CMD [ "init-db.sh" ]

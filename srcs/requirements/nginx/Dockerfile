@@ -14,4 +14,4 @@ COPY scripts/init-nginx.sh /bin/init-nginx.sh
 
 RUN chmod +xt /bin/init-nginx.sh
 
-CMD ["/bin/init-nginx.sh"]
+CMD [ "/bin/init-nginx.sh" ]
