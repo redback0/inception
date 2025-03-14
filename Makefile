@@ -1,29 +1,30 @@
 
 DCOMP := docker-compose -f srcs/docker-compose.yml
 
-all: build up
+LOGIN := $(USER)
+export LOGIN
 
-export LOGIN=${USER}
+all: build up
 
 build:
 	@mkdir -p ~/data/mariadb-volume
 	@mkdir -p ~/data/wordpress-volume
-	@sudo ${DCOMP} build
+	@sudo -E ${DCOMP} build
 
 up:
-	@sudo ${DCOMP} up -d
+	@sudo -E ${DCOMP} up -d
 
 down:
-	@sudo ${DCOMP} down
+	@sudo -E ${DCOMP} down
 
 start:
-	@sudo ${DCOMP} start
+	@sudo -E ${DCOMP} start
 
 stop:
-	@sudo ${DCOMP} stop
+	@sudo -E ${DCOMP} stop
 
 logs:
-	@sudo ${DCOMP} logs
+	@sudo -E ${DCOMP} logs
 
 
 clean: down
