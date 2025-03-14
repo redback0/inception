@@ -3,6 +3,8 @@ DCOMP := docker-compose -f srcs/docker-compose.yml
 
 all: build up
 
+export LOGIN=${USER}
+
 build:
 	@mkdir -p ~/data/mariadb-volume
 	@mkdir -p ~/data/wordpress-volume
