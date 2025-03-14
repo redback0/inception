@@ -22,6 +22,8 @@ RUN printf 'access.log = /dev/stdout\n[global]\nerror_log = /dev/stderr\n' >> /e
 # listen to all servers
 RUN sed -i "s/listen = 127\.0\.0\.1\:9000/listen = 9000/" /etc/php82/php-fpm.d/www.conf
 
+RUN curl --output /run/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+
 COPY scripts/init-docker.sh /bin/init-docker.sh
 RUN chmod +xt /bin/init-docker.sh
 

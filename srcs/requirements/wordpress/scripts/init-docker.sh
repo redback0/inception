@@ -16,7 +16,7 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     sed -i "s/password_here/${DB_PASSWORD}/" /var/www/html/wp-config.php
     sed -i "s/localhost/${DB_HOST}/" /var/www/html/wp-config.php
 
-    php82 core install \
+    php82 /run/wp-cli.phar core install \
         --path="/var/www/html/" \
         --url="${INTRA_ID}.42.fr" \
         --title="Incpetion" \
