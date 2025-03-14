@@ -4,8 +4,7 @@ DCOMP := docker-compose -f srcs/docker-compose.yml
 all: build up
 
 build:
-	@mkdir -p ~/data/mariadb-volume
-	@mkdir -p ~/data/wordpress-volume
+	@mkdir -p ~/data
 	@sudo ${DCOMP} build
 
 up:
@@ -30,7 +29,7 @@ fclean: down
 	-@sudo docker volume prune -f
 	-@sudo docker volume rm srcs_mariadb-volume
 	-@sudo docker volume rm srcs_wordpress-volume
-	-@rm -rf ~/data
+	-@sudo rm -rf ~/data
 
 re: fclean all
 
