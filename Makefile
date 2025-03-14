@@ -4,7 +4,8 @@ DCOMP := docker-compose -f srcs/docker-compose.yml
 all: build up
 
 build:
-	@mkdir -p ~/data
+	@mkdir -p ~/data/mariadb-volume
+	@mkdir -p ~/data/wordpress-volume
 	@sudo ${DCOMP} build
 
 up:
