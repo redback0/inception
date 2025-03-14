@@ -5,8 +5,7 @@ first_run()
     echo "--FIRST RUN--"
     sleep 5
 
-    set -a && source /run/secrets/wordpress.env \
-        && source /run/secrets/database.env && set +a
+    set -a && source /run/secrets/database.env && set +a
 
     WP_HOST=inception-wordpress.srcs_wordpress-network
 

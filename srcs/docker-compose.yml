@@ -9,8 +9,6 @@ services:
     secrets:
       - source: database-secret
         target: database.env
-      - source: wordpress-secret
-        target: wordpress.env
   wordpress:
     container_name: inception-wordpress
     build: requirements/wordpress
@@ -22,7 +20,11 @@ services:
       - mariadb
     secrets:
       - source: database-secret
-        target: .env
+        target: database.env
+      - source: wordpress-secret
+        target: wordpress.env
+      - source: nginx-secret
+        target: nginx.env
   nginx:
     container_name: inception-nginx
     build: requirements/nginx
