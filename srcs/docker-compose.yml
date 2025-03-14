@@ -40,8 +40,16 @@ services:
 volumes:
   mariadb-volume:
     driver: local
+    driver-opts:
+      o: bind
+      type: none
+      device: /home/nate/data/mariadb-volume
   wordpress-volume:
     driver: local
+    driver-opts:
+      o: bind
+      type: none
+      device: /home/nate/data/wordpress-volume
 networks:
   wordpress-network: {}
 secrets:

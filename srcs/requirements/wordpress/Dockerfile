@@ -15,7 +15,7 @@ RUN apk add curl &&\
 
 
 # install php-fpm
-RUN apk add php82-fpm php82-mysqli
+RUN apk add php82-fpm php82-mysqli php82 php82-phar
 
 # configure php-fpm
 RUN printf 'access.log = /dev/stdout\n[global]\nerror_log = /dev/stderr\n' >> /etc/php82/php-fpm.conf
