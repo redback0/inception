@@ -40,13 +40,13 @@ services:
 volumes:
   mariadb-volume:
     driver: local
-    driver-opts:
+    driver_opts:
       o: bind
       type: none
       device: /home/nate/data/mariadb-volume
   wordpress-volume:
     driver: local
-    driver-opts:
+    driver_opts:
       o: bind
       type: none
       device: /home/nate/data/wordpress-volume
