@@ -28,6 +28,7 @@ if [ ! -f /var/www/html/wp-config.php ]; then
         --skip-email
 
     php82 /run/wp-cli.phar user create \
+        --path="/var/www/html/" \
         "${WP_USER_USER}" \
         "${WP_USER_EMAIL}" \
         --user-pass="${WP_USER_PASS}"
