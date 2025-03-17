@@ -21,7 +21,7 @@ RUN apk update && apk add \
 #     mv wordpress/* . &&\
 #     rm -r wordpress
 
-ADD https://wordpress.org/wordpress-6.7.2.tar.gz /var/www/html
+ADD https://wordpress.org/wordpress-6.7.2.tar.gz /var/www/html/
 
 # configure php-fpm
 RUN printf 'access.log = /dev/stdout\n[global]\nerror_log = /dev/stderr\n' >> /etc/php82/php-fpm.conf
