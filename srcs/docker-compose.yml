@@ -6,6 +6,7 @@ services:
       - wordpress-network
     volumes:
       - mariadb-volume:/var/mariadb
+    restart: always
     secrets:
       - source: database-secret
         target: database.env
@@ -18,6 +19,7 @@ services:
       - wordpress-volume:/var/www/html/
     depends_on:
       - mariadb
+    restart: always
     secrets:
       - source: database-secret
         target: database.env
@@ -36,6 +38,7 @@ services:
       - wordpress-volume:/var/www/html/
     depends_on:
       - wordpress
+    restart: always
     secrets:
       - source: nginx-secret
         target: .env
