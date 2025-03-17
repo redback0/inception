@@ -18,7 +18,7 @@ RUN apk update && apk add \
 #     curl --output wordpress.tar.gz https://wordpress.org/wordpress-6.7.2.tar.gz &&\
 
 ADD https://wordpress.org/wordpress-6.7.2.tar.gz /tmp/wordpress.tar.gz
-RUN tar -xzvC /var/www/html/ -f /tmp/wordpress.tar.gz >/dev/null &&\
+RUN tar -xzvC /tmp/ -f /tmp/wordpress.tar.gz >/dev/null &&\
     mkdir -p /var/www/html/ &&\
     mv /tmp/wordpress/* /var/www/html/ &&\
     rm -rf /tmp/wordpress.tar.gz /tmp/wordpress
