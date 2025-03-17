@@ -24,7 +24,13 @@ if [ ! -f /var/www/html/wp-config.php ]; then
         --title="Incpetion" \
         --admin_user="${WP_ADMIN_USER}" \
         --admin_password="${WP_ADMIN_PASS}" \
-        --admin_email="${WP_ADMIN_EMAIL}"
+        --admin_email="${WP_ADMIN_EMAIL}" \
+        --skip-email
+
+    php82 /run/wp-cli.phar user create \
+        "${WP_USER_USER}" \
+        "${WP_USER_EMAIL}" \
+        --user-pass="${WP_USER_PASS}"
 
 fi
 
