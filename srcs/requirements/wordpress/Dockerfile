@@ -26,6 +26,9 @@ RUN sed -i "s/listen = 127\.0\.0\.1\:9000/listen = 9000/" /etc/php82/php-fpm.d/w
 
 RUN curl --output /run/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
+# fuck wp-cli?
+RUN sed -i "s/^memory_limit = .*$/memory_limit = 512M/" /etc/php82/php.ini
+
 RUN php82 /run/wp-cli.phar core download --path="/var/www/html/"
 
 COPY scripts/init-docker.sh /bin/init-docker.sh
